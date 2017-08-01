@@ -1,0 +1,68 @@
+---
+title: "Specialist Haemostasis IQC Report"
+author: "Stephen MacDonald"
+date: "June 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This is the Internal Quality Control analysis document for the Specialist Haemostasis department, Cambridge University Hospital Foundation Trust, Cambridge, UK.
+
+## Summary of performance of all assays 
+
+- same as ECAT do for a high level overview of results. ? use a heatmap to show what is god and what isnt. Break it down by:
+assay, analyser, qc material
+
+## Exploratory Analysis of the previous month's IQC
+
+Below are the initial exploratory statistics for the data for the preceding month.
+SM - upload data from the last month to this folder
+joyplots to detect variance of all QC over time - checks the first assumption that all QC are running to a normal distribution
+Boxplots using ggplot to show variance of results of each QC?
+```{r, echo=FALSE, warning=FALSE, fig.width=3}
+library(ggplot2)
+ggplot(data=iris, aes(x=Species, y=Petal.Width)) + geom_boxplot()
+```
+
+
+## QC Charts
+SM - can you use par mfrow to get 
+
+## Time Series and Trend Analysis
+```{r}
+library(dygraphs)
+dygraph(nhtemp, main = "New Haven Temperatures") %>% 
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
+```
+
+```{r}
+library(d3heatmap)
+d3heatmap(mtcars, scale="column", colors="Blues")
+```
+
+
+
+## change in six sigma perfromance of the assay over time
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
